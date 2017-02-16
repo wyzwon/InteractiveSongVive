@@ -22,7 +22,7 @@ public class Controller : MonoBehaviour {
         if (device.GetPressDown(SteamVR_Controller.ButtonMask.Trigger))
         {
             print("trigger pressed");
-            device.TriggerHapticPulse(700);
+            device.TriggerHapticPulse(2000);
         }
 	}
 }
