@@ -17,7 +17,7 @@ public class Controller : MonoBehaviour {
         device = SteamVR_Controller.Input((int)trackedObject.index);
         if (device.GetAxis().x != 0 || device.GetAxis().y != 0)
         {
-            print(device.GetAxis().x +  ", " + device.GetAxis().y);
+            //print(device.GetAxis().x +  ", " + device.GetAxis().y);
         }
         if (device.GetPressDown(SteamVR_Controller.ButtonMask.Trigger))
         {

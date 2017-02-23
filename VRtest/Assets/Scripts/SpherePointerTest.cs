@@ -11,6 +11,6 @@ public class SpherePointerTest : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        print(this.gameObject.transform.position.ToString());
+        //print(this.gameObject.transform.position.ToString());
 	}
 }
