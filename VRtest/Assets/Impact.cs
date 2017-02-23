@@ -14,8 +14,9 @@ public class Impact : MonoBehaviour {
 		
 	}
 
-    //void oncollisionenter(collider other)
-    //{
-    //    print("collision occured");
-    //}
+    void OnCollisionEnter(Collision collision)
+    {
+        print("COLLISION DETECTED");
+        print("magnitude: " + collision.relativeVelocity.magnitude);
+    }
 }
