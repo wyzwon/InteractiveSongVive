@@ -12,8 +12,8 @@ public class testCollideBall : MonoBehaviour {
     void Start () {
         //rightRemoteBall = GameObject.FindGameObjectWithTag("rightRemoteBall");
         innerTube = GameObject.FindGameObjectsWithTag("tube")[0];
-        capsule = GameObject.FindGameObjectsWithTag("capsule")[0];
-        print(innerTube);
+        //capsule = GameObject.FindGameObjectsWithTag("capsule")[0];
+        //print(innerTube);
         defaultTexture = innerTube.GetComponent<Renderer>().material.mainTexture;
     }
 	
@@ -33,11 +33,17 @@ public class testCollideBall : MonoBehaviour {
 
     void OnCollisionEnter(Collision col)
     {
-        innerTube.GetComponent<Renderer>().material.mainTexture = myNewTexture2D;
+        if (col.gameObject.tag == "tube")
+        {
+            innerTube.GetComponent<Renderer>().material.mainTexture = myNewTexture2D;
+        }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnCollisionExit(Collision col)
     {
-        innerTube.GetComponent<Renderer>().material.mainTexture = defaultTexture;
+        if (col.gameObject.tag == "tube")
+        {
+            innerTube.GetComponent<Renderer>().material.mainTexture = defaultTexture;
+        }
     }
 }
