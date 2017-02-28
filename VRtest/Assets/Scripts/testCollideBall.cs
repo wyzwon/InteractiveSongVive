@@ -7,7 +7,12 @@ public class testCollideBall : MonoBehaviour {
     GameObject capsule;
     Texture defaultTexture;
 
-    public Texture2D myNewTexture2D;
+    public Material hardMat;
+    public Material softMat;
+
+    //audio
+    public AudioClip hitClip;
+
     // Use this for initialization
     void Start () {
         //rightRemoteBall = GameObject.FindGameObjectWithTag("rightRemoteBall");
@@ -15,6 +20,10 @@ public class testCollideBall : MonoBehaviour {
         //capsule = GameObject.FindGameObjectsWithTag("capsule")[0];
         //print(innerTube);
         defaultTexture = innerTube.GetComponent<Renderer>().material.mainTexture;
+
+        //audio
+        GetComponent<AudioSource>().playOnAwake = false;
+        GetComponent<AudioSource>().clip = hitClip;
     }
 	
 	// Update is called once per frame
@@ -35,8 +44,18 @@ public class testCollideBall : MonoBehaviour {
     {
         if (col.gameObject.tag == "tube")
         {
-            innerTube.GetComponent<Renderer>().material.mainTexture = myNewTexture2D;
-        }
+            if (col.relativeVelocity.magnitude >= 1)
+            {
+                innerTube.GetComponent<Renderer>().material = hardMat;
+            }//if hit hard enough
+            else
+            {
+                innerTube.GetComponent<Renderer>().material = softMat;
+            }
+
+            //audio
+            GetComponent<AudioSource>().Play();
+        }//if you hit the tube
     }
 
     private void OnCollisionExit(Collision col)
