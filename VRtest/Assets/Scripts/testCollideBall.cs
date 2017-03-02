@@ -9,6 +9,7 @@ public class testCollideBall : MonoBehaviour {
 
     public Material hardMat;
     public Material softMat;
+    public Material defaultMat;
 
     //audio
     public AudioClip hitClip;
@@ -44,7 +45,8 @@ public class testCollideBall : MonoBehaviour {
     {
         if (col.gameObject.tag == "tube")
         {
-            if (col.relativeVelocity.magnitude >= 1)
+            print(col.relativeVelocity.magnitude);
+            if (col.relativeVelocity.magnitude >= 10)
             {
                 innerTube.GetComponent<Renderer>().material = hardMat;
             }//if hit hard enough
@@ -62,7 +64,7 @@ public class testCollideBall : MonoBehaviour {
     {
         if (col.gameObject.tag == "tube")
         {
-            innerTube.GetComponent<Renderer>().material.mainTexture = defaultTexture;
+            innerTube.GetComponent<Renderer>().material = defaultMat;//defaultTexture;
         }
     }
 }
