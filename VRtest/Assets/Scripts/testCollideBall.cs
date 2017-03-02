@@ -5,11 +5,12 @@ using UnityEngine;
 public class testCollideBall : MonoBehaviour {
     GameObject innerTube;
     GameObject capsule;
-    Texture defaultTexture;
 
     public Material hardMat;
     public Material softMat;
     public Material defaultMat;
+
+    public int HardEnough;
 
     //audio
     public AudioClip hitClip;
@@ -20,7 +21,6 @@ public class testCollideBall : MonoBehaviour {
         innerTube = GameObject.FindGameObjectsWithTag("tube")[0];
         //capsule = GameObject.FindGameObjectsWithTag("capsule")[0];
         //print(innerTube);
-        defaultTexture = innerTube.GetComponent<Renderer>().material.mainTexture;
 
         //audio
         GetComponent<AudioSource>().playOnAwake = false;
@@ -29,34 +29,24 @@ public class testCollideBall : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        /*print(Vector3.Distance(innerTube.transform.position, this.transform.position));
-        print("innerTube: " + innerTube.transform.position);
-        print("This: " + this.transform.position);
 
-        capsule.transform.position = this.transform.position;
-        if (Vector3.Distance(innerTube.transform.position, this.transform.position) < 8)
-        {
-            innerTube.GetComponent<Renderer>().material.mainTexture = myNewTexture2D;
-            print("detected proximity within 8 units");
-        }//this.gameObject.transform)*/
-	}
+    }
 
     void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.tag == "tube")
         {
             print(col.relativeVelocity.magnitude);
-            if (col.relativeVelocity.magnitude >= 10)
+            if (col.relativeVelocity.magnitude >= HardEnough)
             {
                 innerTube.GetComponent<Renderer>().material = hardMat;
+                //audio
+                GetComponent<AudioSource>().Play();
             }//if hit hard enough
             else
             {
                 innerTube.GetComponent<Renderer>().material = softMat;
             }
-
-            //audio
-            GetComponent<AudioSource>().Play();
         }//if you hit the tube
     }
 
