@@ -67,6 +67,7 @@ public class testCollideBall : MonoBehaviour {
             if (col.relativeVelocity.magnitude >= HardEnough)
             {
                 //audio
+				GetComponent<AudioSource>().volume = 10 / col.relativeVelocity.magnitude;
                 GetComponent<AudioSource>().Play();
             }//if hit hard enough
         }//if you hit the tube
@@ -76,6 +77,7 @@ public class testCollideBall : MonoBehaviour {
             if (col.relativeVelocity.magnitude >= HardEnough)
             {
                 //audio
+				GetComponent<AudioSource>().volume = 10 / col.relativeVelocity.magnitude;
                 GetComponent<AudioSource>().Play();
             }
         }
@@ -85,6 +87,7 @@ public class testCollideBall : MonoBehaviour {
             if (col.relativeVelocity.magnitude >= HardEnough)
             {
                 //audio
+				GetComponent<AudioSource>().volume = 10 / col.relativeVelocity.magnitude;
                 GetComponent<AudioSource>().Play();
             }
         }
@@ -94,6 +97,7 @@ public class testCollideBall : MonoBehaviour {
             if (col.relativeVelocity.magnitude >= HardEnough)
             {
                 //audio
+				GetComponent<AudioSource>().volume = 10 / col.relativeVelocity.magnitude;
                 GetComponent<AudioSource>().Play();
             }
         }
@@ -103,6 +107,7 @@ public class testCollideBall : MonoBehaviour {
             if (col.relativeVelocity.magnitude >= HardEnough)
             {
                 //audio
+				GetComponent<AudioSource>().volume = 10 / col.relativeVelocity.magnitude;
                 GetComponent<AudioSource>().Play();
             }
         }
@@ -112,6 +117,7 @@ public class testCollideBall : MonoBehaviour {
             if (col.relativeVelocity.magnitude >= HardEnough)
             {
                 //audio
+				GetComponent<AudioSource>().volume = 10 / col.relativeVelocity.magnitude;
                 GetComponent<AudioSource>().Play();
             }
         }
@@ -121,6 +127,7 @@ public class testCollideBall : MonoBehaviour {
             if (col.relativeVelocity.magnitude >= HardEnough)
             {
                 //audio
+				GetComponent<AudioSource>().volume = 10 / col.relativeVelocity.magnitude;
                 GetComponent<AudioSource>().Play();
             }
         }
@@ -130,6 +137,7 @@ public class testCollideBall : MonoBehaviour {
             if (col.relativeVelocity.magnitude >= HardEnough)
             {
                 //audio
+				GetComponent<AudioSource>().volume = 10 / col.relativeVelocity.magnitude;
                 GetComponent<AudioSource>().Play();
             }
         }
