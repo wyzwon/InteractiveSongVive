@@ -6,16 +6,6 @@ public class xylophone : MonoBehaviour {
 
     public int HardEnough;
 
-    //audio
-    public AudioClip sound1;
-    public AudioClip sound2;
-    public AudioClip sound3;
-    public AudioClip sound4;
-    public AudioClip sound5;
-    public AudioClip sound6;
-    public AudioClip sound7;
-    public AudioClip sound8;
-
     //each bar
     GameObject bar1;
     GameObject bar2;
@@ -29,9 +19,6 @@ public class xylophone : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        //audio
-        GetComponent<AudioSource>().playOnAwake = false;
-
         bar1 = this.transform.GetChild(0).gameObject;
         bar2 = this.transform.GetChild(1).gameObject;
         bar3 = this.transform.GetChild(2).gameObject;
@@ -40,83 +27,78 @@ public class xylophone : MonoBehaviour {
         bar6 = this.transform.GetChild(5).gameObject;
         bar7 = this.transform.GetChild(6).gameObject;
         bar8 = this.transform.GetChild(7).gameObject;
-
     }
 
     //changed play to PlayOneShot in order to let multiple clips play on the one source
-    //commented out assigning the clip to the audio source, since PlayOneShot takes the clip as an arg
     void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject == bar1) // which bar did you hit
+        //the first collision point - potential to cause problems with hitting two bars at once
+        ContactPoint contact = col.contacts[0];
+
+        //checks the two colliders in the collision to see if either is a bar
+        //find out which one is true when hitting the xylophone with object and make that one the first one, so checks are more efficient
+        if (contact.thisCollider.gameObject == bar1 || contact.otherCollider.gameObject == bar1)
         {
-            //GetComponent<AudioSource>().clip = sound1;
             if (col.relativeVelocity.magnitude >= HardEnough) // did you hit it hard enough
             {
                 //audio
-                bar1.GetComponent<AudioSource>().PlayOneShot(sound1);
+                bar1.GetComponent<AudioSource>().Play();
             }
         }
-        else if (col.gameObject == bar2)
+        else if (contact.thisCollider.gameObject == bar2 || contact.otherCollider.gameObject == bar2)
         {
-            //GetComponent<AudioSource>().clip = sound2;
             if (col.relativeVelocity.magnitude >= HardEnough)
             {
                 //audio
-                bar2.GetComponent<AudioSource>().PlayOneShot(sound2);
+                bar2.GetComponent<AudioSource>().Play();
             }
         }
-        else if (col.gameObject == bar3)
+        else if (contact.thisCollider.gameObject == bar3 || contact.otherCollider.gameObject == bar3)
         {
-            //GetComponent<AudioSource>().clip = sound3;
             if (col.relativeVelocity.magnitude >= HardEnough)
             {
                 //audio
-                bar3.GetComponent<AudioSource>().PlayOneShot(sound3);
+                bar3.GetComponent<AudioSource>().Play();
             }
         }
-        else if (col.gameObject == bar4)
+        else if (contact.thisCollider.gameObject == bar4 || contact.otherCollider.gameObject == bar4)
         {
-            //GetComponent<AudioSource>().clip = sound4;
             if (col.relativeVelocity.magnitude >= HardEnough)
             {
                 //audio
-                bar4.GetComponent<AudioSource>().PlayOneShot(sound4);
+                bar4.GetComponent<AudioSource>().Play();
             }
         }
-        else if (col.gameObject == bar5)
+        else if (contact.thisCollider.gameObject == bar5 || contact.otherCollider.gameObject == bar5)
         {
-            //GetComponent<AudioSource>().clip = sound5;
             if (col.relativeVelocity.magnitude >= HardEnough)
             {
                 //audio
-                bar5.GetComponent<AudioSource>().PlayOneShot(sound5);
+                bar5.GetComponent<AudioSource>().Play();
             }
         }
-        else if (col.gameObject == bar6)
+        else if (contact.thisCollider.gameObject == bar6 || contact.otherCollider.gameObject == bar6)
         {
-            //GetComponent<AudioSource>().clip = sound6;
             if (col.relativeVelocity.magnitude >= HardEnough)
             {
                 //audio
-                bar6.GetComponent<AudioSource>().PlayOneShot(sound6);
+                bar6.GetComponent<AudioSource>().Play();
             }
         }
-        else if (col.gameObject == bar7)
+        else if (contact.thisCollider.gameObject == bar7 || contact.otherCollider.gameObject == bar7)
         {
-            //GetComponent<AudioSource>().clip = sound7;
             if (col.relativeVelocity.magnitude >= HardEnough)
             {
                 //audio
-                bar7.GetComponent<AudioSource>().PlayOneShot(sound7);
+                bar7.GetComponent<AudioSource>().Play();
             }
         }
-        else if (col.gameObject == bar8)
+        else if (contact.thisCollider.gameObject == bar8 || contact.otherCollider.gameObject == bar8)
         {
-            //GetComponent<AudioSource>().clip = sound8;
             if (col.relativeVelocity.magnitude >= HardEnough)
             {
                 //audio
-                bar8.GetComponent<AudioSource>().PlayOneShot(sound8);
+                bar8.GetComponent<AudioSource>().Play();
             }
         }//ifs
     }//OnCollisionEnter
