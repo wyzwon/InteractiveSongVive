@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,14 +19,14 @@ public class xylophone : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        bar1 = this.transform.GetChild(0).gameObject;
-        bar2 = this.transform.GetChild(1).gameObject;
-        bar3 = this.transform.GetChild(2).gameObject;
-        bar4 = this.transform.GetChild(3).gameObject;
-        bar5 = this.transform.GetChild(4).gameObject;
-        bar6 = this.transform.GetChild(5).gameObject;
-        bar7 = this.transform.GetChild(6).gameObject;
-        bar8 = this.transform.GetChild(7).gameObject;
+        bar1 = this.gameObject.transform.GetChild(0).gameObject;
+        bar2 = this.gameObject.transform.GetChild(1).gameObject;
+        bar3 = this.gameObject.transform.GetChild(2).gameObject;
+        bar4 = this.gameObject.transform.GetChild(3).gameObject;
+        bar5 = this.gameObject.transform.GetChild(4).gameObject;
+        bar6 = this.gameObject.transform.GetChild(5).gameObject;
+        bar7 = this.gameObject.transform.GetChild(6).gameObject;
+        bar8 = this.gameObject.transform.GetChild(7).gameObject;
     }
 
     //changed play to PlayOneShot in order to let multiple clips play on the one source

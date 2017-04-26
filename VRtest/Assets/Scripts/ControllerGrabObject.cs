@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -80,6 +80,10 @@ public class ControllerGrabObject : MonoBehaviour {
         collidingObject = null;
         var joint = AddFixedJoint();
         joint.connectedBody = objectInHand.GetComponent<Rigidbody>();
+        
+        if(objectInHand.GetComponent("Drumstick") as Drumstick){
+            objectInHand.GetComponent<Drumstick>().SetGrabbed(true);
+        }
     }
 
     //attaching two rigidbodies together using fixed joints
@@ -102,6 +106,12 @@ public class ControllerGrabObject : MonoBehaviour {
             //pass the controllers velocity and rotation when released so you can throw stuff
             objectInHand.GetComponent<Rigidbody>().velocity = Controller.velocity;
             objectInHand.GetComponent<Rigidbody>().angularVelocity = Controller.angularVelocity;
+        }
+        
+        if(objectInHand.GetComponent("Drumstick") as Drumstick){
+            objectInHand.GetComponent<Drumstick>().SetGrabbed(false);
+            //objectInHand.GetComponent<Drumstick>().Real();
+            //objectInHand.GetComponent<Drumstick>().Dampen();
         }
         // make sure hand is empty
         objectInHand = null;
