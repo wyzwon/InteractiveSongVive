@@ -24,12 +24,12 @@ public class BarSound : MonoBehaviour {
 
 		if (System.Math.Abs (col.relativeVelocity.magnitude) < 0.00001) {
 			GetComponent<AudioSource>().volume = col.relativeVelocity.magnitude * 5000000;
-			print(col.relativeVelocity.magnitude * 5000000);
+			//print(col.relativeVelocity.magnitude * 5000000);
 		}
 		else
 		{
 			GetComponent<AudioSource>().volume = col.relativeVelocity.magnitude;
-			print(col.relativeVelocity.magnitude);
+			//print(col.relativeVelocity.magnitude);
 		}
 
 		//GetComponent<AudioSource>().volume = 0f;
